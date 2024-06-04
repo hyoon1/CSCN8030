@@ -19,11 +19,9 @@ steps:
 - script: |
     git config --global user.email "flag819@gmail.com"
     git config --global user.name "Hosang Yoon"
-    git clone https://$(System.AccessToken)@dev.azure.com/hsyoon1/CSCN8030/_git/CSCN8030
+    git clone https://hsyoon1@dev.azure.com/hsyoon1/CSCN8030/_git/CSCN8030
     cd CSCN8030
     git remote add github https://$(GITHUB_TOKEN)@github.com/hyoon1/CSCN8030.git
     git pull github main
     git push origin main
   displayName: 'Sync GitHub to Azure DevOps'
-  env:
-    SYSTEM_ACCESSTOKEN: $(System.AccessToken)
