@@ -1,27 +1,15 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
-
-variables:
-  - group: GitHubSecrets 
+  vmImage: 'ubuntu-latest'
 
 steps:
 - checkout: self
-  persistCredentials: true  
 
 - script: |
-    git config --global user.email "flag819@gmail.com"
-    git config --global user.name "Hosang Yoon"
-    git clone https://hsyoon1@dev.azure.com/hsyoon1/CSCN8030/_git/CSCN8030
+    git config --global user.email "you@example.com"
+    git config --global user.name "Your Name"
     cd CSCN8030
-    git remote add github https://$(GITHUB_TOKEN)@github.com/hyoon1/CSCN8030.git
-    git pull github main
-    git push origin main
+    git pull origin main
   displayName: 'Sync GitHub to Azure DevOps'
