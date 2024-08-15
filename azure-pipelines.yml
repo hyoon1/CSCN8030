@@ -1,0 +1,15 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- checkout: self
+
+- script: |
+    git config --global user.email "you@example.com"
+    git config --global user.name "Your Name"
+    cd CSCN8030
+    git pull origin main
+  displayName: 'Sync GitHub to Azure DevOps'
